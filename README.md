@@ -1,11 +1,23 @@
 # Rubik's Cube Solving Program
 
-Preparatory work for the experiment of the course Design of Electronic Systems.
+A part of work for the experiment of the course Design of Electronic Systems.
 
-This program can solve the Rubik's cube by the traditional formula method. The tests shows that using a quad-core 2.7GHz computer and Visual Studio compilation, the C function clock() cannot measure the time required to obtain the result (i.e., it is less than 1 ms).
+在经过两个多月的程序修订后, 我们最终给出了一个稳定版本version 1.04a.
+
+这一版本提供了一个软件层面上的将魔方从打乱到复原的测试. 我们约定, 将魔方的数据存储在一个名叫 “cube.txt” 的文本文档中. 模拟 “打乱” 步骤 ULDRFBU’L’D’R’F’B’, 然后根据附录 A 所述内容执行 5 组特定的 “转面” 步骤, 每组操作后都会进行 1 次 “拍摄”, 即共对魔方作 6 次 “拍摄”; “拍摄” 的结果存储在文本文档 “pic_1.txt”, “pic_2.txt”, …, “pic_6.txt” 中. 然后模拟图像处理程序, 我们将 “拍摄” 的结果转存到 “ipt_1.txt”, “ipt_2.txt”, …, “ipt_6.txt” 中. 然后根据附录 A 所述内容汇总 “图像处理” 的结果, 这样我们就得到了当前魔方的颜色状态.
+
+魔方复原由 3 个模块组成. 其一是基本操作模块. 在这一模块中, 魔方的 12 个转面指令和 6 个转体指令均得到了程序实现. 其二是基本求解模块. 在这一模块中, 我们采用了不完善的 CFOP 法 (Cross 阶段不是七步十字法, 所以说不完善) 求解, 并将各阶段得到的步骤直接拼接. 其三是综合处理模块. 在这一模块中, 我们对基本求解模块给出的步骤进行加工, 去除冗余步骤并进行正确性验证, 最后输出结果.
+
+结果以串口通信的方式发送到单片机. 在串口处理模块中, 我们通过读取注册表项 “Computer\HKEY_LOCAL_MACHINE\HARDWARE\DEVICEMAP\SERIALCOMM” 获取串口编号信息, 给出可用串口列表供用户选择 (用户的选择将会记录在文本文档 “COM.txt” 中, 因此无需选择第二次). 除了程序内置发送的转面指令以外, 也提供了四条调试指令: “c000” ~ “c999” 表示电机转速, “o” 表示电机脱机, “i” 表示电机挂机, “x” 表示强制停止并清空缓存. 指令均以 “\n” 结尾以表示指令结束.
+
+整个测试流程编译为 22 个子 Windows 应用程序, 由一个批处理文件管理运行.
+
+(附录 A 略, 可以参考 main.c 推知)
+
+(第一次以中文形式发布README)
 
 -----
 
 Copyright (c) 2020 Marina Akitsuki. All rights reserved.
 
-Date modified: 2020/03/01
+Date modified: 2020/05/16
