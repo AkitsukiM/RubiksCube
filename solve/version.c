@@ -1,6 +1,6 @@
 /*
 * Rubik's Cube Solving Program
-* version 1.04a
+* version 1.04b
 * 
 * 1.00b update on 2020/03/03:
 * (i) Renamed some operations;
@@ -23,7 +23,11 @@
 * 1.04a update on 2020/05/16:
 * (i) Rewrote the function main() to simulate the whole process from scrambling to solving;
 * 
+* 1.04b update on 2020/05/22:
+* (i) Deleted the command 'z' in RubiksCubeSolve module;
+* (ii) Renamed RubiksCubeImgproc module;
+* 
 * Copyright (c) 2020 Marina Akitsuki. All rights reserved.
-* Date modified: 2020/05/16
+* Date modified: 2020/05/22
 * 
 */

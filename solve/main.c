@@ -75,18 +75,18 @@ int main()
 	// COMsend("udFbuDLr\n", 9); // x = 5
 	// */
 
-	// /* x-3. RubiksCubePre.exe **************************************************
+	/* x-3. RubiksCubePre.exe **************************************************
 	// cube_fread();
-	operation_analysis("ULDRFBuldrfb"); // x = 0
+	// operation_analysis("ULDRFBuldrfb"); // x = 0
 	// operation_analysis("u"); // x = 1
 	// operation_analysis("UDfBUdLr"); // x = 2
 	// operation_analysis("RlDubFdFFLLRRBB"); // x = 3
 	// operation_analysis("U"); // x = 4
 	// operation_analysis("udFbuDLr"); // x = 5
-	cube_fprintf();
+	// cube_fprintf();
 	// */
 
-	/* 7-1. RubiksCubeImageProcessing.exe **************************************************
+	/* 7-1. RubiksCubeImgproc.exe **************************************************
 	system("copy \"pic_1.txt\" \"ipt_1.txt\"");
 	system("copy \"pic_2.txt\" \"ipt_2.txt\"");
 	system("copy \"pic_3.txt\" \"ipt_3.txt\"");
@@ -249,6 +249,42 @@ int main()
 	// /* 7-3. RubiksCubeSolve.exe **************************************************
 	while (1)
 	{
+		int have_had_command_z = 0;
+		int have_had_command_x = 0;
+
+		// 控制指令
+		while (1)
+		{
+			if (have_had_command_z == 0)
+			{
+				cube_solve();
+				_addnewline_and_COMsend(planB);
+				have_had_command_z = 1;
+			}
+			else
+			{
+				char command[3];
+				printf("Enter your command (x to stop, q to quit):\n");
+				mygetline(command, 1);
+				if (command[0] == 'x' && command[1] == '\0')
+				{
+					_addnewline_and_COMsend(command);
+					have_had_command_x = 1;
+					break;
+				}
+				else if (command[0] == 'q' && command[1] == '\0')
+				{
+					break;
+				}
+				else
+				{
+					printf("Error: Illegal command.\n");
+				}
+			}
+		}
+
+		if (have_had_command_x == 0) break;
+
 		// 初始化指令
 		while (1)
 		{
@@ -274,39 +310,6 @@ int main()
 				printf("Error: Illegal setting.\n");
 			}
 		}
-
-		int have_had_command_z = 0;
-		int have_had_command_x = 0;
-
-		// 控制指令
-		while (1)
-		{
-			char command[3];
-			printf("Enter your command (z to start, x to stop, q to quit):\n");
-			mygetline(command, 1);
-			if (command[0] == 'z' && command[1] == '\0' && have_had_command_z == 0)
-			{
-				cube_solve();
-				_addnewline_and_COMsend(planB);
-				have_had_command_z = 1;
-			}
-			else if (command[0] == 'x' && command[1] == '\0')
-			{
-				_addnewline_and_COMsend(command);
-				have_had_command_x = 1;
-				break;
-			}
-			else if (command[0] == 'q' && command[1] == '\0')
-			{
-				break;
-			}
-			else
-			{
-				printf("Error: Illegal command.\n");
-			}
-		}
-
-		if (have_had_command_x == 0) break;
 	}
 	// */
 
