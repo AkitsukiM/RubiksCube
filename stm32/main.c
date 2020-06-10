@@ -155,84 +155,84 @@ int SingleMotorDrive(char s)
 		return 0;
 	}
 	//Solve Code udlrfb ---------->>>>>>>> 012345 Motor Number
-	if(s=='U'){
+	if(s=='u'){
 		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_6,GPIO_PIN_SET);
 		for(int i=0;i<100;i++){
 		HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_4);
 		HAL_Delay(pwm_delay);
 		}
 		motor_state[0]++;
-	}else if(s=='u'){
+	}else if(s=='U'){
 		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_6,GPIO_PIN_RESET);
 		for(int i=0;i<100;i++){
 		HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_4);
 		HAL_Delay(pwm_delay);
 		}
 		motor_state[0]--;
-	}else if(s=='D'){
+	}else if(s=='d'){
 		HAL_GPIO_WritePin(GPIOG,GPIO_PIN_13,GPIO_PIN_SET);
 		for(int i=0;i<100;i++){
 		HAL_GPIO_TogglePin(GPIOG,GPIO_PIN_11);
 		HAL_Delay(pwm_delay);
 		}
 		motor_state[1]++;
-	}else if(s=='d'){
+	}else if(s=='D'){
 		HAL_GPIO_WritePin(GPIOG,GPIO_PIN_13,GPIO_PIN_RESET);
 		for(int i=0;i<100;i++){
 		HAL_GPIO_TogglePin(GPIOG,GPIO_PIN_11);
 		HAL_Delay(pwm_delay);
 		}
 		motor_state[1]--;
-	}else if(s=='L'){
+	}else if(s=='l'){
 		HAL_GPIO_WritePin(GPIOD,GPIO_PIN_6,GPIO_PIN_SET);
 		for(int i=0;i<100;i++){
 		HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_4);
 		HAL_Delay(pwm_delay);
 		}
 		motor_state[2]++;
-	}else if(s=='l'){
+	}else if(s=='L'){
 		HAL_GPIO_WritePin(GPIOD,GPIO_PIN_6,GPIO_PIN_RESET);
 		for(int i=0;i<100;i++){
 		HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_4);
 		HAL_Delay(pwm_delay);
 		}
 		motor_state[2]--;
-	}else if(s=='R'){
+	}else if(s=='r'){
 		HAL_GPIO_WritePin(GPIOD,GPIO_PIN_0,GPIO_PIN_SET);
 		for(int i=0;i<100;i++){
 		HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_11);
 		HAL_Delay(pwm_delay);
 		}
 		motor_state[3]++;
-	}else if(s=='r'){
+	}else if(s=='R'){
 		HAL_GPIO_WritePin(GPIOD,GPIO_PIN_0,GPIO_PIN_RESET);
 		for(int i=0;i<100;i++){
 		HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_11);
 		HAL_Delay(pwm_delay);
 		}
 		motor_state[3]--;
-	}else if(s=='F'){
+	}else if(s=='f'){
 		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_7,GPIO_PIN_SET);
 		for(int i=0;i<100;i++){
 		HAL_GPIO_TogglePin(GPIOG,GPIO_PIN_8);
 		HAL_Delay(pwm_delay);
 		}
 		motor_state[4]++;
-	}else if(s=='f'){
+	}else if(s=='F'){
 		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_7,GPIO_PIN_RESET);
 		for(int i=0;i<100;i++){
 		HAL_GPIO_TogglePin(GPIOG,GPIO_PIN_8);
 		HAL_Delay(pwm_delay);
 		}
 		motor_state[4]--;
-	}else if(s=='B'){
+	}else if(s=='b'){
 		HAL_GPIO_WritePin(GPIOG,GPIO_PIN_4,GPIO_PIN_SET);
 		for(int i=0;i<100;i++){
 		HAL_GPIO_TogglePin(GPIOG,GPIO_PIN_2);
 		HAL_Delay(pwm_delay);
 		}
 		motor_state[5]++;
-	}else if(s=='b'){
+	}else if(s=='B'){
 		HAL_GPIO_WritePin(GPIOG,GPIO_PIN_4,GPIO_PIN_RESET);
 		for(int i=0;i<100;i++){
 		HAL_GPIO_TogglePin(GPIOG,GPIO_PIN_2);
